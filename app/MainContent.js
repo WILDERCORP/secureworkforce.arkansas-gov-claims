@@ -104,7 +104,7 @@ export default function MainContent() {
           fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
           textAlign: 'center',
         }}>
-          Welcome to ArkNet (Arkansas Internet Continued Claims System)
+          Welcome to ArkNet (Arkansas Internet Continued Claims System).
         </h3>
         <div style={{
           width: 850,
