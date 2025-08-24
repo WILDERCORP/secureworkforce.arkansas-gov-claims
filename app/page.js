@@ -1,4 +1,5 @@
-import '../styles/globals.css';
+"use client";
+import '../src/styles/globals.css';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';

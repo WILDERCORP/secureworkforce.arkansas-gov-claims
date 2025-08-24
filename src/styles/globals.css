@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 html, body {
   background: #fff !important;
-=======
+
 @media (max-width: 600px) {
   html, body {
     font-size: 15px;
@@ -35,7 +35,7 @@ html, body {
     min-height: 100px !important;
     gap: 8px !important;
   }
->>>>>>> 6664ea4fc4f6bea6561aefebe5011dbccbdf04e2
+}
 }
 :root {
   --background: #fff;
