@@ -44,7 +44,11 @@ export default function MainContent() {
       overflowX: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'auto' : 'visible',
     }}>
       <section style={{
+<<<<<<< HEAD
         background: '#fff',
+=======
+        background: '#f7f7f7',
+>>>>>>> 6664ea4fc4f6bea6561aefebe5011dbccbdf04e2
         padding: '0',
         width: '100%',
         display: 'flex',
@@ -69,7 +73,11 @@ export default function MainContent() {
           />
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: 'auto'}}>
             <h1 style={{
+<<<<<<< HEAD
               fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(13px, 4vw, 18px)' : 'clamp(20px, 5vw, 32px)',
+=======
+              fontSize: 'clamp(20px, 5vw, 32px)',
+>>>>>>> 6664ea4fc4f6bea6561aefebe5011dbccbdf04e2
               fontWeight: 'bold',
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#000',
@@ -83,7 +91,11 @@ export default function MainContent() {
               Arkansas Division of Workforce Services
             </h1>
             <h2 style={{
+<<<<<<< HEAD
               fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(11px, 3vw, 15px)' : 'clamp(16px, 3vw, 22px)',
+=======
+              fontSize: 'clamp(16px, 3vw, 22px)',
+>>>>>>> 6664ea4fc4f6bea6561aefebe5011dbccbdf04e2
               fontWeight: 500,
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#071C93',
