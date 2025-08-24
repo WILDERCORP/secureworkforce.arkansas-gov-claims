@@ -30,7 +30,7 @@ export default function MainContent() {
 
   return (
     <main id="PAGES_CONTAINER" tabIndex={-1} style={{
-      background: '#010A2D',
+      background: '#fff',
       fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
       color: '#071C93',
       boxSizing: 'border-box',
@@ -40,10 +40,11 @@ export default function MainContent() {
       alignItems: 'center',
       justifyContent: 'flex-start',
       padding: 0,
-      margin: 0
+      margin: 0,
+      overflowX: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'auto' : 'visible',
     }}>
       <section style={{
-        background: '#f7f7f7',
+        background: '#fff',
         padding: '0',
         width: '100%',
         display: 'flex',
@@ -68,7 +69,7 @@ export default function MainContent() {
           />
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: 'auto'}}>
             <h1 style={{
-              fontSize: 'clamp(20px, 5vw, 32px)',
+              fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(13px, 4vw, 18px)' : 'clamp(20px, 5vw, 32px)',
               fontWeight: 'bold',
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#000',
@@ -82,7 +83,7 @@ export default function MainContent() {
               Arkansas Division of Workforce Services
             </h1>
             <h2 style={{
-              fontSize: 'clamp(16px, 3vw, 22px)',
+              fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(11px, 3vw, 15px)' : 'clamp(16px, 3vw, 22px)',
               fontWeight: 500,
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#071C93',
@@ -194,37 +195,8 @@ export default function MainContent() {
             The web browsers best suited for this site are the most recent versions of Microsoft Edge, Mozilla Firefox, and Google Chrome.
           </p>
         </div>
-        <div style={{height: '10px'}}></div>
       </section>
-      {popup && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          background: 'rgba(0,0,0,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 9999
-        }}>
-          <div style={{
-            background: '#fff',
-            color: '#071C93',
-            padding: '32px 48px',
-            borderRadius: 12,
-            fontSize: 22,
-            fontWeight: 600,
-            boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
-            textAlign: 'center',
-          }}>
-            {popup}
-            <br />
-            <button style={{marginTop: 24, padding: '10px 32px', fontSize: 18, background: '#071C93', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer'}} onClick={() => setPopup("")}>Close</button>
-          </div>
-        </div>
-      )}
+  {/* ...existing code... */}
     </main>
   );
 }

@@ -1,5 +1,8 @@
+html, body {
+  background: #fff !important;
+}
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #171717;
 }
 
@@ -18,7 +21,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #fff;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
