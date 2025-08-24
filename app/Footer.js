@@ -13,22 +13,26 @@ export default function Footer() {
       alignItems: 'center',
       borderTop: '1px solid #003366',
       zIndex: 1000,
-      height: '80px',
+      height: 'auto',
+      minHeight: '80px',
+      overflow: 'hidden',
+      flexWrap: 'wrap',
     }}>
       <div style={{
         display: 'flex',
+        flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '32px',
+        gap: '24px',
         maxWidth: 980,
         margin: '0 auto',
         width: '100%',
         letterSpacing: 'normal',
-        height: '100%',
+        minWidth: 0,
       }}>
         <span style={{fontSize: 15}}>
-          All Rights Reserved. Copyright © 2021 ADWS, State of Arkansas
+          All Rights Reserved. Copyright © 2025 ADWS, State of Arkansas
         </span>
         <span style={{fontSize: 16, textDecoration: 'underline', cursor: 'pointer'}}>
           Contact ADWS

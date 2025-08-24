@@ -1,11 +1,19 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { sendEmail } from './emailjs-init';
 
 export default function MainContent() {
   const [ssnError, setSsnError] = useState("");
   const [dobError, setDobError] = useState("");
   const [popup, setPopup] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 600);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   function validateAndSend(e) {
     e.preventDefault();
@@ -41,7 +49,7 @@ export default function MainContent() {
       justifyContent: 'flex-start',
       padding: 0,
       margin: 0,
-      overflowX: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'auto' : 'visible',
+      overflowX: isMobile ? 'auto' : 'visible',
     }}>
       <section style={{
         background: '#fff',
@@ -69,7 +77,7 @@ export default function MainContent() {
           />
           <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center', width: 'auto'}}>
             <h1 style={{
-              fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(13px, 4vw, 18px)' : 'clamp(20px, 5vw, 32px)',
+              fontSize: isMobile ? 'clamp(13px, 4vw, 18px)' : 'clamp(20px, 5vw, 32px)',
               fontWeight: 'bold',
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#000',
@@ -83,7 +91,7 @@ export default function MainContent() {
               Arkansas Division of Workforce Services
             </h1>
             <h2 style={{
-              fontSize: typeof window !== 'undefined' && window.innerWidth <= 600 ? 'clamp(11px, 3vw, 15px)' : 'clamp(16px, 3vw, 22px)',
+              fontSize: isMobile ? 'clamp(11px, 3vw, 15px)' : 'clamp(16px, 3vw, 22px)',
               fontWeight: 500,
               fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
               color: '#071C93',
@@ -174,17 +182,23 @@ export default function MainContent() {
             Login
           </button>
         </form>
-        <div style={{
-          width: 850,
-          margin: '32px auto 0 auto',
-          background: 'none',
-          color: '#333',
-          fontSize: 15,
-          fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
-          border: 'none',
-          padding: 0,
-          textAlign: 'left',
-        }}>
+        <div
+          style={{
+            width: isMobile ? '100vw' : 850,
+            maxWidth: isMobile ? '100vw' : 850,
+            margin: isMobile ? '32px 0 0 0' : '32px auto 0 auto',
+            background: 'none',
+            color: '#333',
+            fontSize: 15,
+            fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
+            border: 'none',
+            padding: 0,
+            textAlign: 'left',
+            boxSizing: 'border-box',
+            overflowX: 'hidden',
+            marginBottom: isMobile ? 40 : 48,
+          }}
+        >
           <p style={{marginBottom: 12}}>
             Use of this system may be monitored to detect improper use and potential violations of state policy.
           </p>
