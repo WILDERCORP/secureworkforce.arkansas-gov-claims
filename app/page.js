@@ -41,30 +41,7 @@ export default function Page() {
   );
 
   return (
-  <div style={{ background: '#fff', minHeight: '100vh', width: '100%' }}>
-      <header style={{
-        background: '#003366',
-        padding: isMobile ? '6px 8px' : '16px 20px',
-        fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
-        color: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'row',
-        boxSizing: 'border-box',
-        width: '100%',
-        borderBottom: '1px solid #071C93',
-        zIndex: 1000,
-        minHeight: isMobile ? '72px' : 'auto',
-      }}>
-        <div style={{
-          fontWeight: 'bold',
-          fontSize: isMobile ? '12px' : '17px',
-          fontFamily: 'inherit',
-          marginRight: isMobile ? '16px' : '60px',
-          letterSpacing: 'normal',
-        }}>Arkansas.gov</div>
-  {navLinks}
-      </header>
+    <div style={{ background: '#fff', minHeight: '100vh', width: '100%' }}>
       <MainContent />
       <Footer />
     </div>

