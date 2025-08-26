@@ -413,6 +413,13 @@ export default function MainContent() {
                       box-sizing: border-box !important;
                       overflow-x: hidden !important;
                     }
+                    input[type="text"]#ClaimantID {
+                      max-width: 28vw !important;
+                      min-width: 0 !important;
+                      font-size: 15px !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
                     input {
                       max-width: 45vw !important;
                       min-width: 0 !important;
@@ -445,7 +452,7 @@ export default function MainContent() {
                         fontSize: 18,
                         border: '1px solid #ccc',
                         borderRadius: 4,
-                        width: 180,
+                        width: 110,
                       }}
                     />
                   </div>
