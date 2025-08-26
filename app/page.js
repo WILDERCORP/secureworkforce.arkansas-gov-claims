@@ -1,5 +1,4 @@
 "use client";
-import '../src/styles/globals.css';
 import MainContent from './MainContent';
 import Footer from './Footer';
 import { useState, useEffect } from 'react';
@@ -20,15 +19,18 @@ export default function Page() {
   const navLinks = (
     <nav style={{
       display: 'flex',
-      flexDirection: 'row',
-      gap: '8px',
-      fontSize: '12px',
+      flexDirection: isMobile ? 'row' : 'row',
+      flexWrap: isMobile ? 'wrap' : 'nowrap',
+      gap: isMobile ? '12px' : '32px',
+      fontSize: isMobile ? 'clamp(13px, 4vw, 16px)' : '16px',
       alignItems: 'center',
-      marginLeft: '48px',
+      justifyContent: isMobile ? 'flex-start' : 'flex-end',
+      marginLeft: isMobile ? 0 : 'auto',
       letterSpacing: 'normal',
-      background: 'none',
-      padding: 0,
-      flexWrap: 'wrap',
+      background: isMobile ? '#003366' : 'none',
+      padding: isMobile ? '12px 0' : 0,
+      width: isMobile ? '100%' : 'auto',
+      maxWidth: isMobile ? '260px' : 'none',
     }}>
       <span>ADWS Home&nbsp;|</span>
       <span style={{textDecoration: 'underline'}}>AR Claim Help&nbsp;|</span>
@@ -36,7 +38,7 @@ export default function Page() {
       <span style={{textDecoration: 'underline'}}>Online&nbsp;|</span>
       <span>Services&nbsp;|</span>
       <span style={{textDecoration: 'underline'}}>Policies</span>
-      <span style={{textDecoration: 'underline', marginLeft: '16px', fontSize: '12px'}}>En español</span>
+      <span style={{textDecoration: 'underline', marginLeft: isMobile ? 0 : '32px', fontSize: isMobile ? 'clamp(12px, 3vw, 14px)' : '14px'}}>En español</span>
     </nav>
   );
 
@@ -58,12 +60,14 @@ export default function Page() {
       }}>
         <div style={{
           fontWeight: 'bold',
-          fontSize: isMobile ? '12px' : '17px',
+          fontSize: isMobile ? 'clamp(13px, 5vw, 16px)' : '15px',
           fontFamily: 'inherit',
-          marginRight: isMobile ? '16px' : '60px',
+          marginRight: isMobile ? '18px' : '60px',
           letterSpacing: 'normal',
         }}>Arkansas.gov</div>
-  {navLinks}
+        {/* Add extra space between Arkansas.gov and nav links only in mobile view */}
+        {isMobile && <div style={{width: '12px'}}></div>}
+        {navLinks}
       </header>
       <MainContent />
       <Footer />
