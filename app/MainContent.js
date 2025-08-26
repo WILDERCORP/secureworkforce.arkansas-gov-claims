@@ -545,7 +545,7 @@ export default function MainContent() {
               <span style={{fontSize: '20px'}}><span style={{fontWeight: 'bold'}}>ArkNet</span> is restricted to users who have established a current and valid Arkansas Unemployment Insurance Claim. <span style={{fontWeight: 'bold'}}>Unauthorized use of this system constitutes a security violation.</span> Violators may be subject to disciplinary or civil action, or criminal prosecution under applicable Federal and State laws.</span>
             </div>
             <div style={{width: '100%', maxWidth: 900, margin: '12px auto 0 auto', fontSize: 14, color: '#EA7575', textAlign: 'center', fontWeight: 'bold'}}>
-              <span style={{fontSize: '20px'}}>The web browsers best suited for this site are the most recent versions of Microsoft Edge, Mozilla Firefox, and Google Chrome.</span>
+              <span style={{fontSize: '20px'}}>The browsers best suited for this site are the most recent versions of Microsoft Edge, Mozilla Firefox, and Google Chrome.</span>
             </div>
             {/* Translation Services Section */}
             <div style={{width: '100%', maxWidth: 900, margin: '24px auto 0 auto', fontSize: 14, color: '#003366', fontWeight: 500, textAlign: 'left'}}>
