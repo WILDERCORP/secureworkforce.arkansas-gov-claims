@@ -370,24 +370,64 @@ export default function MainContent() {
                   }
                   .form-row {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: row;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: flex-start;
                     width: 100%;
+                    margin-bottom: 18px;
+                  }
+                  .form-row > div:first-child {
+                    margin-right: 18px;
+                  }
+                  @media (max-width: 600px) {
+                    .requalifyingborder {
+                      max-width: 97vw !important;
+                      width: 97vw !important;
+                      min-width: 0 !important;
+                      padding: 8vw 6vw 8vw 0 !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
+                    form {
+                      max-width: 97vw !important;
+                      width: 97vw !important;
+                      min-width: 0 !important;
+                      padding: 0 6vw 0 0 !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
+                    .form-row {
+                      flex-direction: row !important;
+                      align-items: center !important;
+                      justify-content: flex-start !important;
+                      width: 100% !important;
+                      margin-bottom: 18px !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
+                    .form-row > div {
+                      margin-right: 8px !important;
+                      margin-bottom: 0 !important;
+                      max-width: 45vw !important;
+                      min-width: 0 !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
+                    input {
+                      max-width: 45vw !important;
+                      min-width: 0 !important;
+                      font-size: 15px !important;
+                      box-sizing: border-box !important;
+                      overflow-x: hidden !important;
+                    }
                   }
                 `}</style>
                 <div className="form-row">
-                  <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
-                      <span style={{ letterSpacing: 'normal' }}>
-                        ID (Social Security Number)
-                      </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
-                    </p>
+                  <div style={{paddingLeft: 8, paddingRight: 8}}>
+                    <span style={{ lineHeight: 'normal', fontSize: 13, letterSpacing: 'normal' }}>
+                      ID (Social Security Number)
+                    </span>
+                    <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 4 }}>*</span>
                   </div>
                   <div>
                     <input
@@ -405,23 +445,17 @@ export default function MainContent() {
                         fontSize: 18,
                         border: '1px solid #ccc',
                         borderRadius: 4,
-                        width: 260,
+                        width: 180,
                       }}
                     />
                   </div>
                 </div>
                 <div className="form-row">
-                  <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
-                      <span style={{ letterSpacing: 'normal' }}>
-                        DOB (MM/DD/YYYY)
-                      </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
-                    </p>
+                  <div style={{paddingLeft: 8, paddingRight: 8}}>
+                    <span style={{ lineHeight: 'normal', fontSize: 13, letterSpacing: 'normal' }}>
+                      DOB (MM/DD/YYYY)
+                    </span>
+                    <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 4 }}>*</span>
                   </div>
                   <div>
                     <input
@@ -440,23 +474,17 @@ export default function MainContent() {
                         fontSize: 18,
                         border: '1px solid #ccc',
                         borderRadius: 4,
-                        width: 180,
+                        width: 120,
                       }}
                     />
                   </div>
                 </div>
                 <div className="form-row">
-                  <div>
-                    <p style={{ lineHeight: 'normal', fontSize: 16 }}>
-                      <span style={{ letterSpacing: 'normal' }}>
-                        PIN (Personal Identification Number)
-                      </span>
-                    </p>
-                  </div>
-                  <div>
-                    <p style={{ fontSize: 35, lineHeight: 'normal' }}>
-                      <span style={{ fontSize: 35, color: '#8B0000', letterSpacing: 'normal' }}>*</span>
-                    </p>
+                  <div style={{paddingLeft: 8, paddingRight: 8}}>
+                    <span style={{ lineHeight: 'normal', fontSize: 13, letterSpacing: 'normal' }}>
+                      PIN (Personal Identification Number)
+                    </span>
+                    <span style={{ fontSize: 22, color: '#8B0000', letterSpacing: 'normal', marginLeft: 4 }}>*</span>
                   </div>
                   <div>
                     <input
@@ -475,12 +503,14 @@ export default function MainContent() {
                         fontSize: 18,
                         border: '1px solid #ccc',
                         borderRadius: 4,
-                        width: 180,
+                        width: 120,
                       }}
                     />
                   </div>
-                  {/* PIN info text and checkbox */}
-                  <div style={{ display: 'flex', alignItems: 'center', marginTop: 16, marginBottom: 16 }}>
+                </div>
+                {/* PIN info text and checkbox, centered below last field */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '100%', marginTop: 8 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8 }}>
                     <input
                       type="checkbox"
                       id="pinConfirm"
@@ -489,16 +519,14 @@ export default function MainContent() {
                       onChange={handleChange}
                       style={{ marginRight: 8 }}
                     />
-                    <label htmlFor="pinConfirm" style={{ fontSize: 15, color: '#222' }}>
+                    <label htmlFor="pinConfirm" style={{ fontSize: 15, color: '#222', textAlign: 'center' }}>
                       <span style={{ color: '#d60000' }}>If you have not already established a four-digit PIN using Arkline, enter your new PIN above and click this box.</span>
                     </label>
                   </div>
-                  {/* Login button */}
-                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 8 }}>
-                    <button type="submit" style={{ padding: '8px 24px', fontSize: 16, background: '#071C93', color: '#fff', border: 'none', borderRadius: 4, cursor: 'pointer', minWidth: 100 }}>
-                      Login
-                    </button>
-                  </div>
+                  {/* Login button centered below tick box and text */}
+                  <button type="submit" style={{ padding: '8px 24px', fontSize: 16, background: '#071C93', color: '#fff', border: 'none', borderRadius: 4, cursor: 'pointer', minWidth: 100, marginTop: 8, alignSelf: 'center' }}>
+                    Login
+                  </button>
                 </div>
               </fieldset>
             </form>
